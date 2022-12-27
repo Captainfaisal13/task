@@ -1,13 +1,130 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: hsl(174, 77%, 80%);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: hsl(174, 86%, 45%);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  /* -webkit-transition: 0.2s; */
+}
+
+.slider::-webkit-slider-thumb:hover {
+  /* background-color: white; */
+  /* width: 30px;
+  height: 30px; */
+  border-radius: 50%;
+  background-color: hsl(174, 86%, 45%);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  outline: none;
+}
+.switch input {
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+}
+.button-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cdd7ee;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 100px;
+}
+.button-slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 5px;
+  bottom: 5px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .button-slider {
+  background-color: #a5f3eb;
+}
+input:focus + .button-slider {
+  box-shadow: 0 0 1px #a5f3eb;
+}
+input:checked + .button-slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+.discount {
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  padding: 3px;
+  background-color: hsl(14, 92%, 95%);
+  color: hsl(15, 100%, 70%);
+}
+
+@media only screen and (max-width: 616px) {
+  .features,
+  .btn {
+    margin: auto;
+  }
+
+  .price-heading {
+    font-size: 1.875rem;
+  }
+
+  .card1,
+  .card2 {
+    padding: 1rem;
+  }
+
+  .month {
+    margin-right: 5px;
+  }
+
+  .year {
+    margin-right: 0;
+  }
+  .page {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .card2 {
+    gap: 3rem;
+  }
 }
